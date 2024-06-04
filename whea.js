@@ -65,12 +65,12 @@ function getfromSessionStorage() {
 
 async function fetchUserWeatherInfo(coordinates) {
     const {lat, lon} = coordinates;
-    // make grantcontainer invisible
+ 
     grantAccessContainer.classList.remove("active");
-    //make loader visible
+ 
     loadingScreen.classList.add("active");
 
-    //API CALL
+  
     try {
         const response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
@@ -101,7 +101,6 @@ function renderWeatherInfo(weatherInfo) {
     const humidity = document.querySelector("[data-humidity]");
     const cloudiness = document.querySelector("[data-cloudiness]");
 
-    //fetch values from weatherINfo object and put it UI elements
     cityName.innerText = weatherInfo?.name;
     countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
     desc.innerText = weatherInfo?.weather?.[0]?.description;
@@ -119,7 +118,7 @@ function getLocation() {
         navigator.geolocation.getCurrentPosition(showPosition);
     }
     else {
-        //HW - show an alert for no gelolocation support available
+       
     }
 }
 
